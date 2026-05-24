@@ -28,15 +28,80 @@ From the above characteristic table, we can directly write the next state equati
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Open Quartus Prime software.
+
+2. Create a new project using **New Project Wizard**.
+
+3. Enter the project name, project location, and select the FPGA device.
+
+4. Create a new Verilog HDL file using
+   **File → New → Verilog HDL File**.
+
+5. Write the Verilog program for the T Flip-Flop.
+
+6. Save the file with the module name
+   (Example: `TFF.v`).
+
+7. Set the Verilog file as the **Top-Level Entity**.
+
+8. Compile the design using
+   **Processing → Start Compilation**.
+
+9. Check whether the compilation is completed successfully without errors.
+
+10. Create a testbench file or waveform input file for simulation.
+
+11. Apply different values to input **T** along with clock pulses.
+
+12. Run the simulation and observe the outputs **Q** and **Qbar**.
+
+13. Verify the obtained waveform using the T Flip-Flop truth table.
+
+14. Observe the RTL schematic and timing waveform generated after simulation.
+
+15. Conclude the experiment after verifying the correct operation of the T Flip-Flop.
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+Developed by: Sujin M L
+
+RegisterNumber: 212225040435
+
+```
+module D9(T, clk, Q, Qbar);
+
+input T, clk;
+output reg Q;
+output Qbar;
+
+assign Qbar = ~Q;
+
+initial
+begin
+    Q = 0;
+end
+
+always @(posedge clk)
+begin
+    if(T == 1'b0)
+        Q <= Q;        // No change
+    else
+        Q <= ~Q;       // Toggle
+end
+
+endmodule
+```
+
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1919" height="1079" alt="Screenshot 2026-05-24 154748" src="https://github.com/user-attachments/assets/d9779ca1-8a2d-4bd9-9010-1d749fd9cd28" />
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+<img width="1919" height="1079" alt="Screenshot 2026-05-24 154850" src="https://github.com/user-attachments/assets/ce4baebe-3053-4277-94f2-365d40fd217e" />
+
 **RESULTS**
+
+Thus, the T Flip-Flop was successfully implemented using Verilog HDL and its functionality was verified using simulation results.
